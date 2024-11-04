@@ -23,12 +23,21 @@ Some code was taken from https://oxylabs.io/blog/scrape-images-from-website.
 
 ## Working on the model
 
+### Analysis
+
+Useful resource: https://www.datacamp.com/tutorial/seeing-like-a-machine-a-beginners-guide-to-image-analysis-in-machine-learning
+
+Need to resize and normalize image
+
+Also considering setting the colors in the image to a certain quanity, possibly based on information scraped from the website (i.e. how many colors are supposed to be in the pattern)
+
 ### Train/Test Split
 
 The data is split 70% training, 30% test. The csv, patterns.csv holds all the codes for each pattern and allows you to find the associated
 folder under either /photos or /grids.
 
 ### Model
+
 
 
 
