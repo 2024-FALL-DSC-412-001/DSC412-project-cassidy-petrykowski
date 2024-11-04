@@ -38,6 +38,13 @@ folder under either /photos or /grids.
 
 ### Model
 
+Data -> Resize and Normalize -> Confine to a certain number of colors -> isolate pattern within image and crop image to only include pattern
+
+(not entirely sure how to do this step yet)
+
+from there->image segmentation CNN finds the knots and grids them?
+
+
 
 
 
