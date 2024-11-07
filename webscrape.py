@@ -2,6 +2,8 @@
 
 # code partially taken from https://oxylabs.io/blog/scrape-images-from-website
 
+# scrapes https://www.braceletbook.com/photos/
+
 import csv
 import hashlib
 import io

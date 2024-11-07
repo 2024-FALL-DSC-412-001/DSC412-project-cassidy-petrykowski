@@ -21,13 +21,22 @@ Truthfully, this part was a learning curve.
 
 Some code was taken from https://oxylabs.io/blog/scrape-images-from-website.
 
+To run in terminal:
+
+python3 webscraper.py
+
 ## Working on the model
+
+To run:
+
+Iterate through the training.ipynb file. Be sure to go in order, as the imports precede the sections, and contain critical functions from
+helper_function.py.
 
 ### Analysis
 
 Useful resource: https://www.datacamp.com/tutorial/seeing-like-a-machine-a-beginners-guide-to-image-analysis-in-machine-learning
 
-Need to resize and normalize image
+Using thresholding to identify primary object in image. Using resources from OpenCV, https://docs.opencv.org/4.x/d7/d4d/tutorial_py_thresholding.html and https://www.freedomvc.com/index.php/2022/01/17/basic-background-remover-with-opencv/.
 
 Also considering setting the colors in the image to a certain quanity, possibly based on information scraped from the website (i.e. how many colors are supposed to be in the pattern)
 
