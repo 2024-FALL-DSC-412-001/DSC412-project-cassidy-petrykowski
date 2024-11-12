@@ -47,11 +47,18 @@ folder under either /photos or /grids.
 
 ### Model
 
+#### Initial Plan
+
 Data -> Resize and Normalize -> Confine to a certain number of colors -> isolate pattern within image and crop image to only include pattern
 
 (not entirely sure how to do this step yet)
 
 from there->image segmentation CNN finds the knots and grids them?
+
+https://github.com/qubvel-org/segmentation_models.pytorch
+
+#### Revised Plan
+
 
 
 
