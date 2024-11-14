@@ -18,6 +18,8 @@ import os
 from helper_functions import *
 
 storage_path = "/home/cassidy/DSC412/project/DSC412-project-cassidy-petrykowski/data"
+new_width = 256
+new_height = 256
 #storage_path = "/media/cassidy/'Extreme SSD'/data"
 
 # as it says
@@ -48,6 +50,7 @@ def get_and_save_image_to_file(image_url, output_dir, isGrid=False, isFileName=F
     image = Image.open(image_file).convert("RGB")
     if isGrid:
         image = shrink_and_square(image)
+    image = image.resize((new_width,new_height))
     filename = hashlib.sha1(image_content).hexdigest()[:10] + ".png"
     file_path = output_dir / filename
     image.save(file_path, "PNG", quality=80)
@@ -131,8 +134,9 @@ def scrape_page(path):
 if __name__ == "__main__":
     # get the pattern page urls
     original_path = "https://www.braceletbook.com/photos/page-"
-    for i in range(4,7):
+    for i in range(1,7):
         scrape_page(original_path + str(i) + '/')
+    #os.system("rm -rf data/grids/* data/photos/*")
     print("Done!")    
 
 
