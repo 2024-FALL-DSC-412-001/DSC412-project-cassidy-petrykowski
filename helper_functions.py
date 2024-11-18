@@ -33,7 +33,8 @@ import numpy as np
 import cv2 as cv2
 from matplotlib import pyplot as plt
 
-def bgremove2(myimage):
+def bgremove2(img_path):
+    myimage = cv2.imread(img_path)
     # First Convert to Grayscale
     myimage_grey = cv2.cvtColor(myimage, cv2.COLOR_BGR2GRAY)
  
@@ -50,7 +51,7 @@ def bgremove2(myimage):
  
     # Combine the background and foreground to obtain our final image
     finalimage = background+foreground
-    return finalimage
+    cv2.imwrite(img_path,finalimage)
     
 def showimage(myimage):
     if (myimage.ndim>2):  #This only applies to RGB or RGBA images (e.g. not to Black and White images)
@@ -93,3 +94,4 @@ def shrink_and_square(im, target_size=218, fill_color=(0, 0, 0, 0)):
     new_im = Image.new('RGBA', (target_size, target_size), fill_color)
     new_im.paste(im)
     return new_im
+

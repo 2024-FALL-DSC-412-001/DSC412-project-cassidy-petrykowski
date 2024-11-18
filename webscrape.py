@@ -16,6 +16,7 @@ from pathlib import Path
 from PIL import Image
 import os
 from helper_functions import *
+# import time
 
 storage_path = "/home/cassidy/DSC412/project/DSC412-project-cassidy-petrykowski/data"
 new_width = 256
@@ -128,15 +129,18 @@ def get_page_urls(url):
 def scrape_page(path):
     page_urls = get_page_urls(path)
     for url in page_urls:
-        print(url)
+        #print(url)
         scrape_pattern(url)
 
 if __name__ == "__main__":
     # get the pattern page urls
     original_path = "https://www.braceletbook.com/photos/page-"
-    for i in range(1,7):
+    for i in range(16,200):
         scrape_page(original_path + str(i) + '/')
-    #os.system("rm -rf data/grids/* data/photos/*")
+        print("Page " + str(i) + " scraped!")
+        # os.system("rm -rf data/grids/* data/photos/*")
+        # time.sleep(20)
+
     print("Done!")    
 
 
