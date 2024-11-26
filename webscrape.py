@@ -16,7 +16,7 @@ from pathlib import Path
 from PIL import Image
 import os
 from helper_functions import *
-# import time
+import time
 
 storage_path = "/home/cassidy/DSC412/project/DSC412-project-cassidy-petrykowski/data"
 new_width = 256
@@ -50,7 +50,7 @@ def get_and_save_image_to_file(image_url, output_dir, isGrid=False, isFileName=F
     image_file = io.BytesIO(image_content)
     image = Image.open(image_file).convert("RGB")
     if isGrid:
-        image = shrink_and_square(image)
+        image = shrink_and_square(image, image.width, image.height)
     image = image.resize((new_width,new_height))
     filename = hashlib.sha1(image_content).hexdigest()[:10] + ".png"
     file_path = output_dir / filename
@@ -114,6 +114,7 @@ def scrape_pattern(url):
     print(name)
     grid_path = get_grids(url, name)
     get_photos(url, grid_path, name)
+    get_photos(url, grid_path, name)
     
 
 # gets all the pattern page urls from the photos page
@@ -135,7 +136,7 @@ def scrape_page(path):
 if __name__ == "__main__":
     # get the pattern page urls
     original_path = "https://www.braceletbook.com/photos/page-"
-    for i in range(16,200):
+    for i in range(1,300):
         scrape_page(original_path + str(i) + '/')
         print("Page " + str(i) + " scraped!")
         # os.system("rm -rf data/grids/* data/photos/*")

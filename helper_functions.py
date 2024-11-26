@@ -2,6 +2,7 @@
 
 import os
 from PIL import Image
+import math
 
 #Calculates the average image size in a directory.
 def get_average_image_size(directory):
@@ -89,9 +90,27 @@ def merge_images(grid_path, photo_path, path):
 
 # making a square around image that is too large
 
-def shrink_and_square(im, target_size=218, fill_color=(0, 0, 0, 0)):
-    im.thumbnail((target_size, target_size))
-    new_im = Image.new('RGBA', (target_size, target_size), fill_color)
-    new_im.paste(im)
-    return new_im
+def shrink_and_square(im, width, height, target_size=218, fill_color=(255, 255, 255, 255)):
+    # print("before width: " + str(width))
+    # print("before height: " + str(height))
+    ratio = target_size/height
+    new_width = int(width * ratio)
+    if (new_width % 2):
+        new_width += 1
+    resized_img = im.resize((new_width, target_size))
+    if resized_img.width <= target_size:
+         return resized_img  # No need to crop
+    trim_pixels = (new_width - target_size) / 2
+    top = 0
+    bottom = target_size
+    left = trim_pixels
+    right = new_width - trim_pixels
 
+    cropped_img = resized_img.crop((left, top, right, bottom))
+
+    return cropped_img
+    
+    # im.thumbnail((target_size, target_size))
+    # new_im = Image.new('RGBA', (target_size, target_size), fill_color)
+    # new_im.paste(im)
+    # return new_im

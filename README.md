@@ -41,6 +41,10 @@ To run in terminal:
 
 `python3 webscraper.py`
 
+## Data Analysis
+
+You can work through the cells in data_analysis.ipynb to see the shape, size and appearance of the data with the background removed. This helps make determinations about the data and if webscraper.py needs to be modified.
+
 ## Model
 
 #### To run:
