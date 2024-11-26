@@ -28,6 +28,18 @@ Alternatively, create a virtual environment through VS Code, using requirements.
 
 ## Gathering Data
 
+Run:
+
+`cd data/`
+
+`mkdir photos`
+
+`mkdir grids`
+
+`cd ..`
+
+This will make your photos and grids directories and return you to your great repo.
+
 #### Webscraper
 
 The webscraper goes through https://www.braceletbook.com/photos/ page by page and takes the URLs of each pattern, taking only "alpha"
